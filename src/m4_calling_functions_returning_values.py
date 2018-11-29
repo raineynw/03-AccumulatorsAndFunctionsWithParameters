@@ -151,19 +151,19 @@ def run_test_digits_in_cube():
     # -------------------------------------------------------------------------
     #Test 1
     expected = 8
-    answer = sum_of_digits(8**3)
+    answer = digits_in_cube(5)
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
 
     #Test 2
     expected =  8
-    answer = sum_of_digits((2**3))
+    answer = digits_in_cube(27)
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
 
     #Test 3
     expected = 1
-    answer = sum_of_digits(10**3)
+    answer = digits_in_cube(112)
     print('Test 3 expected:', expected)
     print('       actual:  ', answer)
 
@@ -183,6 +183,8 @@ def digits_in_cube(n):
       If the integer (n) is 5    (so n cubed is 125),
       this function returns (1 + 2 + 5), which is 8.
     """
+    x = sum_of_digits(n**3)
+    return x
     # -------------------------------------------------------------------------
     # Done: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
