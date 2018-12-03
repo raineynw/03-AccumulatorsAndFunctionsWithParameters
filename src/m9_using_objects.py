@@ -9,13 +9,14 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 """  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-import turtle
 
 
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
     two_circles()
+    circle_and_rectangle()
+    lines()
 
 
 def two_circles():
@@ -29,13 +30,21 @@ def two_circles():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its green doc-string above.
+    # Done: 2. Implement this function, per its green doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.pdf  lists all legal color-names.
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow()
 
+    nick = rg.Circle(rg.Point(100,100),10)
+    nadia = rg.Circle(rg.Point(100,100),20)
+    nick.fill_color = 'blue'
+    nick.attach_to(window)
+    nadia.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
 
 
 
@@ -71,7 +80,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # Done: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -79,6 +88,26 @@ def circle_and_rectangle():
     # IMPORTANT: Use the DOT TRICK to guess the names of the relevant
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow()
+    jim = rg.Circle(rg.Point(200,200),10)
+    a = rg.Point(100,100)
+    b = rg.Point(300,300)
+    bob = rg.Rectangle(a,b)
+    jim.attach_to(window)
+    bob.attach_to(window)
+    jim.fill_color = 'blue'
+    window.render()
+    window.close_on_mouse_click()
+
+    print('thickness:', 1)
+    print('color:', 'blue')
+    print('x:', 200)
+    print('y:',200)
+
+    print('thickness:', 1)
+    print('color:', 'NONE')
+    print('point 1', 100,100)
+    print('point 2:', 300,300)
 
 
 def lines():
@@ -104,6 +133,31 @@ def lines():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # TODO: 4. Implement and test this function.
+    window = rg.RoseWindow()
+    x1 = rg.Point(100,200)
+    x2 = rg.Point(300,200)
+    nadia = rg.Line(x1,x2)
+    x3 = rg.Point(50,100)
+    x4 = rg.Point(200,100)
+    nelson = rg.Line(x3,x4)
+    nadia.thickness = 10
+    mid_pointx1 = (300-100)/2
+    mid_pointx2 = (200-50)/2
+    mid_pointy1 = (200-200)/2
+    mid_pointy2 = (100-100)/2
+    print('mid coordniate',mid_pointx1,mid_pointy1)
+    print('mid x value' ,mid_pointx1)
+    print('mid y value' ,mid_pointy1)
+    print('mid coordinate',mid_pointx2,mid_pointy2)
+    print('mid x value',mid_pointx2)
+    print('mid y value',mid_pointy2)
+
+    nadia.attach_to(window)
+    nelson.attach_to(window)
+
+    window.render()
+    window.close_on_mouse_click()
+
 
 
 # -----------------------------------------------------------------------------
